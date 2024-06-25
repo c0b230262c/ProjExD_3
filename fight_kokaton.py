@@ -133,7 +133,7 @@ def main():
     bg_img = pg.image.load("fig/pg_bg.jpg")
     bird = Bird((300, 200))
     beam = None
-    # bomb = Bomb((255, 0, 0), 10)
+    bomb = Bomb((255, 0, 0), 10)
     bombs = [Bomb((255, 0, 0), 10) for _ in range(NUM_OF_BOMBS)]
     clock = pg.time.Clock()
     tmr = 0
@@ -148,8 +148,8 @@ def main():
 
         if bird.rct.colliderect(bomb.rct):
             # ゲームオーバー時に，こうかとん画像を切り替え，1秒間表示させる
-            bird.change_img(8, screen)
-            pg.display.update()
+            # bird.change_img(8, screen)
+            # pg.display.update()
             # time.sleep(1)
             fonto = pg.font.Font(None, 80)
             txt = fonto.render("Game Over", True, (255, 0, 0))
