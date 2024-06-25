@@ -4,6 +4,13 @@ import sys
 import time
 import pygame as pg
 
+"""
+クラスとクラスの間に空白を入れました
+"""
+
+
+
+
 WIDTH = 1100  # ゲームウィンドウの幅
 HEIGHT = 650  # ゲームウィンドウの高さ
 NUM_OF_BOMBS = 5  # 爆弾の個数
@@ -22,6 +29,7 @@ def check_bound(obj_rct: pg.Rect) -> tuple[bool, bool]:
     if obj_rct.top < 0 or HEIGHT < obj_rct.bottom:
         tate = False
     return yoko, tate
+
 class Bird:
     """
     ゲームキャラクター（こうかとん）に関するクラス
@@ -77,6 +85,7 @@ class Bird:
         if not (sum_mv[0] == 0 and sum_mv[1] == 0):
             self.img = __class__.imgs[tuple(sum_mv)]
         screen.blit(self.img, self.rct)
+
 class Beam:
     """
     こうかとんが放つビームに関するクラス
@@ -99,6 +108,7 @@ class Beam:
         if check_bound(self.rct) == (True, True):
             self.rct.move_ip(self.vx, self.vy)
             screen.blit(self.img, self.rct)    
+
 class Bomb:
     """
     爆弾に関するクラス
@@ -141,8 +151,6 @@ class Score:
         self.text_Surface = self.font.render(f"score: {self.value}", True,  self.color)
         screen.blit(self.text_Surface, self.text_rect)
         
-
-
 
 def main():
     pg.display.set_caption("たたかえ！こうかとん")
